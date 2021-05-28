@@ -479,6 +479,98 @@ conda activate env_name
 
 Parabéns, com isso concluímos o nosso tutorial sobre ambientes virtuais.
 
+## Extras - Criando um ambiente com gcc
+
+Vamos criar um novo ambiente para executar aplicações em c.
+
+``` console
+conda create --n ambiente_c gcc_linux-64
+```
+
+Após esse comando vamos encontrar uma tela como a seguir:
+
+``` console
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /home/carlosmagno/anaconda3/envs/ambiente_c
+
+  added / updated specs:
+    - gcc_linux-64
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    binutils_impl_linux-64-2.31.1|       h6176602_1         3.9 MB
+    binutils_linux-64-2.31.1   |       h6176602_9          26 KB
+    gcc_impl_linux-64-7.3.0    |       habb00fd_1        41.9 MB
+    gcc_linux-64-7.3.0         |       h553295d_9          27 KB
+    ------------------------------------------------------------
+                                           Total:        45.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  binutils_impl_lin~ pkgs/main/linux-64::binutils_impl_linux-64-2.31.1-h6176602_1
+  binutils_linux-64  pkgs/main/linux-64::binutils_linux-64-2.31.1-h6176602_9
+  gcc_impl_linux-64  pkgs/main/linux-64::gcc_impl_linux-64-7.3.0-habb00fd_1
+  gcc_linux-64       pkgs/main/linux-64::gcc_linux-64-7.3.0-h553295d_9
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+
+
+Proceed ([y]/n)? y
+
+```
+
+Podemos criar um arquivo `.c` básico, crie um arquivo com o código abaixo:
+
+``` C
+# include <stdio.h>
+
+  int main(){
+    printf("Alo mundo");
+
+    return 0;
+  }
+
+```
+Salve esse arquivo como `ola_mundo.c`.
+
+Agora podemos executar esse código com gcc:
+
+``` console
+gcc ola_mundo.c -o saida
+```
+
+Podemos executar o código com o comando a seguir:
+
+``` console
+./saida
+```
+
+Podemos verificar as dependencias que temos em nosso projeto com `conda list`.
+
+Vamos obter algo como a seguir:
+
+```
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                        main
+binutils_impl_linux-64    2.31.1               h6176602_1
+binutils_linux-64         2.31.1               h6176602_9
+gcc_impl_linux-64         7.3.0                habb00fd_1
+gcc_linux-64              7.3.0                h553295d_9
+libgcc-ng                 9.1.0                hdf63c60_0
+libstdcxx-ng              9.1.0                hdf63c60_0
+
+```
+Você inclusive pode portar esse ambiente com o `export`.
+
 ### Comandos úteis e guias
 
 Consulte uma lista com os principais comandos do conda e anaconda.
