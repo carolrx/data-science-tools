@@ -22,7 +22,7 @@ for i in range(10):
 lista_uma_linha = [i for i in range(10)]
 
 # Dicionario
-carrinho = {"laranja":2.0, "cafe":5.0}
+carrinho = {"laranja": 2.0, "cafe": 5.0}
 
 for i in carrinho:
     print(carrinho[i])

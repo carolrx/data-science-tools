@@ -16,7 +16,8 @@ print("Alô mundo")
 
 resultado = elemento_a + elemento_b
 print("O resultado da soma é ", resultado)
-# outra maneira de apresenta o resultado é através de um recurso chamdo f string
+# outra maneira de apresenta o resultado é através de um recurso
+# chamado f string
 print(f"O resultado da soma é {resultado}")
 
 # Agora que tal checarmos o tipo presente no resultado
